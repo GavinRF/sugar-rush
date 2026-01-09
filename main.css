@@ -270,6 +270,14 @@
             overflow: hidden;
             text-decoration: none;
             display: inline-block;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        a.candy-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .candy-btn-pink {
@@ -316,6 +324,379 @@
             100% {
                 transform: translate(-50%, -50%) scale(3);
                 opacity: 0;
+            }
+        }
+
+        /* Candy Cart Section */
+        .candy-cart-section {
+            padding: 6rem 2rem 8rem;
+            position: relative;
+            overflow: visible;
+        }
+
+        /* Bunting Flags */
+        .bunting-flags {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 900px;
+            height: 80px;
+            display: flex;
+            justify-content: space-around;
+            z-index: 5;
+        }
+
+        .flag {
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 40px solid var(--pastel-pink);
+            position: relative;
+            animation: flagWave 3s ease-in-out infinite;
+            transform-origin: top center;
+        }
+
+        .flag-pink {
+            border-top-color: var(--pastel-pink);
+        }
+
+        .flag-blue {
+            border-top-color: var(--pastel-blue);
+            animation-delay: 0.2s;
+        }
+
+        .flag-mint {
+            border-top-color: var(--mint);
+            animation-delay: 0.4s;
+        }
+
+        @keyframes flagWave {
+            0%, 100% {
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(5deg);
+            }
+        }
+
+        /* Candy Cart Container */
+        .candy-cart {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            padding-top: 60px;
+        }
+
+        /* Cart Awning */
+        .cart-awning {
+            position: relative;
+            height: 100px;
+            margin-bottom: -20px;
+            z-index: 3;
+        }
+
+        .awning-stripes {
+            width: 100%;
+            height: 120px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--pastel-pink) 0px,
+                var(--pastel-pink) 40px,
+                var(--pastel-blue) 40px,
+                var(--pastel-blue) 80px
+            );
+            border-radius: 20px 20px 0 0;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        /* Dimensional gradient overlay */
+        .awning-stripes::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                180deg,
+                rgba(23, 2, 110, 0.131) 0%,
+                rgba(92, 116, 255, 0.1) 30%,
+                transparent 50%,
+                rgba(255, 241, 241, 0.297) 70%,
+                rgba(250, 230, 230, 0.435) 100%
+            );
+            border-radius: 20px 20px 0 0;
+            pointer-events: none;
+        }
+
+        /* Scalloped Edge */
+        .scalloped-edge {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background: radial-gradient(circle at 50% 0%, transparent 15px, var(--pastel-pink) 15px, var(--pastel-pink) 20px, transparent 20px),
+                        radial-gradient(circle at 50% 0%, transparent 15px, var(--pastel-blue) 15px, var(--pastel-blue) 20px, transparent 20px);
+            background-size: 80px 30px, 80px 30px;
+            background-position: -20px 0, 20px 0;
+            background-repeat: repeat-x;
+        }
+
+        .cart-title-container {
+            position: relative;
+            padding: 66px 0 40px 0;
+            border-left: 4px solid var(--pastel-pink);
+            border-right: 4px solid var(--pastel-pink);
+        }
+
+        /* Cart Body */
+        .cart-body {
+            background: linear-gradient(180deg, #f5deb3 0%, #fffaee 100%);
+            padding: 3rem 2.5rem;
+            border-radius: 0 0 30px 30px;
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.2),
+                inset 0 2px 10px rgba(255, 255, 255, 0.3),
+                inset 0 -10px 30px rgba(139, 69, 19, 0.2);
+            position: relative;
+            z-index: -2;
+            border: 4px solid #eeac07;
+            border-top: none;
+        }
+
+        /* Wood grain effect */
+        .cart-body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                180deg,
+                transparent,
+                transparent 3px,
+                rgba(203, 125, 70, 0.03) 3px,
+                rgba(190, 126, 80, 0.03) 22px
+            );
+            border-radius: 0 0 26px 26px;
+            pointer-events: none;
+        }
+
+        .cart-title {
+            font-family: var(--heading-font), cursive;
+            font-size: 3rem;
+            color: var(--deep-pink);
+            text-align: center;
+            margin-bottom: 0.5rem;
+            text-shadow: 1px 1px 0 white, 2px 2px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-subtitle {
+            text-align: center;
+            color: var(--deep-blue);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .new-arrivals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+            margin-top: -6rem;
+            margin-bottom: 2rem;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .arrival-item {
+            background: white;
+            padding: 1.2rem 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(10, 4, 41, 0.15);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .arrival-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--pastel-pink), var(--pastel-blue), var(--mint));
+        }
+
+        .arrival-item:hover {
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .arrival-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            /* animation: float 3s ease-in-out infinite; */
+        }
+
+        .arrival-item h3 {
+            font-family: var(--heading-font), cursive;
+            color: var(--deep-blue);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .arrival-item p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Peppermint Wheels */
+        .cart-wheels {
+            position: relative;
+            height: 0;
+            z-index: 1;
+        }
+
+        .peppermint-wheel {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            position: absolute;
+            outline: 6px solid var(--pastel-pink);
+            outline-offset: 4px;
+            background:
+                radial-gradient(circle at center, white 15%, transparent 15%),
+                conic-gradient(
+                    from 0deg,
+                    #ff1744 0deg 22.5deg,
+                    white 22.5deg 45deg,
+                    #ff1744 45deg 67.5deg,
+                    white 67.5deg 90deg,
+                    #ff1744 90deg 112.5deg,
+                    white 112.5deg 135deg,
+                    #ff1744 135deg 157.5deg,
+                    white 157.5deg 180deg,
+                    #ff1744 180deg 202.5deg,
+                    white 202.5deg 225deg,
+                    #ff1744 225deg 247.5deg,
+                    white 247.5deg 270deg,
+                    #ff1744 270deg 292.5deg,
+                    white 292.5deg 315deg,
+                    #ff1744 315deg 337.5deg,
+                    white 337.5deg 360deg
+                );
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.3),
+                inset 0 0 0 8px #e91e63,
+                inset 0 0 0 12px white,
+                0 0 0 4px #241205;
+            animation: wheelRotate 8s linear infinite;
+        }
+
+        .peppermint-wheel::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 30px;
+            background: radial-gradient(circle, white 40%, #e91e63 40%, #e91e63 60%, white 60%);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(173, 2, 2, 0.3);
+        }
+
+        .left-wheel {
+            left: 80px;
+            width: 180px;
+            height: 180px;
+            bottom: -100px;
+        }
+
+        .right-wheel {
+            right: 80px;
+            bottom: -60px;
+        }
+
+        @keyframes wheelRotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .candy-cart-section {
+                padding: 4rem 1rem 6rem;
+            }
+
+            .bunting-flags {
+                width: 95%;
+            }
+
+            .flag {
+                border-left-width: 20px;
+                border-right-width: 20px;
+                border-top-width: 35px;
+            }
+
+            .cart-body {
+                padding: 2rem 1.5rem;
+            }
+
+            .cart-title {
+                font-size: 2.2rem;
+            }
+
+            .cart-subtitle {
+                font-size: 1rem;
+            }
+
+            .new-arrivals-grid {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 1rem;
+            }
+
+            .arrival-item {
+                padding: 1.5rem 1rem;
+            }
+
+            .arrival-icon {
+                font-size: 2.5rem;
+            }
+
+            .arrival-item h3 {
+                font-size: 1.1rem;
+            }
+
+            .peppermint-wheel {
+                width: 80px;
+                height: 80px;
+                bottom: -40px;
+            }
+
+            .peppermint-wheel::after {
+                width: 20px;
+                height: 20px;
+            }
+
+            .left-wheel {
+                left: 40px;
+            }
+
+            .right-wheel {
+                right: 40px;
             }
         }
 
@@ -617,15 +998,36 @@
         /* Candy Divider */
           .candy-divider {
                 text-align: center;
-                /* padding: 3rem 0; */
+                padding: 2rem 0;
+                overflow: hidden;
             }
 
             .candy-divider img {
-                max-width: 100%;
+                max-width: 80%;
                 height: auto;
                 max-height: 320px;
-                /* margin-top: -120px; */
-                margin-left: 48%;
+                display: inline-block;
+                animation: sway 4s ease-in-out infinite;
+                transform-origin: center bottom;
+            }
+
+            @keyframes sway {
+                0%, 100% {
+                    transform: translateX(0) rotate(0deg);
+                }
+                25% {
+                    transform: translateX(-20px) rotate(-3deg);
+                }
+                75% {
+                    transform: translateX(20px) rotate(3deg);
+                }
+            }
+
+            @media (max-width: 768px) {
+                .candy-divider img {
+                    max-width: 100%;
+                    max-height: 200px;
+                }
             }
 
         /* Social Section */

@@ -37,8 +37,7 @@
     <meta name="geo.position" content="47.7623;-122.2054">
     <meta name="ICBM" content="47.7623, -122.2054">
 
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Red+Hat+Text:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Asap:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css">
@@ -182,8 +181,46 @@
                     We're your one-stop shop for all things sweet! 🍬
                 </p>
                 <div class="hero-buttons">
-                    <button class="candy-btn candy-btn-pink" onclick="addExplosion(this)">Visit Us Today</button>
-                    <button class="candy-btn candy-btn-blue" onclick="addExplosion(this)">Follow Our Journey</button>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=10030+Main+Street+Bothell+WA+98011" target="_blank" class="candy-btn candy-btn-pink" onclick="addExplosion(this, event)">Visit Us Today</a>
+                    <a href="https://www.instagram.com/sugar_rush.candy_store/" target="_blank" class="candy-btn candy-btn-blue" onclick="addExplosion(this, event)">Follow Our Journey</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Candy Cart Section -->
+        <section class="candy-cart-section">
+
+            <div class="candy-cart">
+                <div class="cart-awning">
+                    <div class="awning-stripes"></div>
+                    <div class="scalloped-edge"></div>
+                </div>
+                <div class="cart-title-container">
+                <h2 class="cart-title">Fresh Arrivals!</h2>
+                <p class="cart-subtitle">Just rolled in from candy land</p>
+                </div>
+                <div class="cart-body">
+                    <div class="new-arrivals-grid">
+                        <div class="arrival-item">
+                            <div class="arrival-icon">🍬</div>
+                            <h3>Japanese KitKats</h3>
+                            <p>Exotic flavors from Tokyo</p>
+                        </div>
+                        <div class="arrival-item">
+                            <div class="arrival-icon">🍫</div>
+                            <h3>Artisan Truffles</h3>
+                            <p>Handcrafted chocolate bliss</p>
+                        </div>
+                        <div class="arrival-item">
+                            <div class="arrival-icon">🍭</div>
+                            <h3>Vintage Lollipops</h3>
+                            <p>Classic swirls & flavors</p>
+                        </div>
+                    </div>
+                    </div>
+                <div class="cart-wheels">
+                    <div class="wheel peppermint-wheel left-wheel"></div>
+                    <div class="wheel peppermint-wheel right-wheel"></div>
                 </div>
             </div>
         </section>
@@ -309,7 +346,7 @@
                         </div>
                     </div>
 
-                    <button class="candy-btn candy-btn-pink" style="width: 100%; font-size: 1.3rem; padding: 1.5rem;" onclick="addExplosion(this)">
+                    <button class="candy-btn candy-btn-pink" style="width: 100%; font-size: 1.3rem; padding: 1.5rem;" onclick="addExplosion(this); scrollToContact();">
                         Reserve Your Box Now
                     </button>
 
@@ -320,6 +357,24 @@
                 </div>
             </div>
         </section>
+
+         <div class="bunting-flags">
+                <div class="flag flag-pink"></div>
+                <div class="flag flag-blue"></div>
+                <div class="flag flag-mint"></div>
+                <div class="flag flag-pink"></div>
+                <div class="flag flag-blue"></div>
+                <div class="flag flag-mint"></div>
+                <div class="flag flag-pink"></div>
+                <div class="flag flag-blue"></div>
+                <div class="flag flag-mint"></div>
+                <div class="flag flag-pink"></div>
+                <div class="flag flag-blue"></div>
+                <div class="flag flag-mint"></div>
+                <div class="flag flag-pink"></div>
+                <div class="flag flag-blue"></div>
+                <div class="flag flag-mint"></div>
+            </div>
 
         <!-- Social Media -->
         <section class="social-section">
@@ -447,7 +502,7 @@
                         <label for="message">Message</label>
                         <textarea id="message" name="message" required></textarea>
                     </div>
-                    <button type="submit" class="candy-btn candy-btn-pink" style="width: 100%;" onclick="addExplosion(this, event)">
+                    <button type="submit" class="candy-btn candy-btn-pink" style="width: 100%;" onclick="addExplosion(this)">
                         Send Sweet Message
                     </button>
                 </form>

@@ -1,9 +1,23 @@
 // Exploding candy button effect
         function addExplosion(button, event) {
-            if (event) event.preventDefault();
-            
+            // If it's a link, prevent default and navigate after animation
+            if (button.tagName === 'A' && event) {
+                event.preventDefault();
+                const href = button.href;
+                const target = button.target;
+
+                // Navigate after animation plays
+                setTimeout(() => {
+                    if (target === '_blank') {
+                        window.open(href, '_blank');
+                    } else {
+                        window.location.href = href;
+                    }
+                }, 400);
+            }
+
             button.classList.add('explode');
-            
+
             // Create sparkles
             for (let i = 0; i < 8; i++) {
                 const sparkle = document.createElement('iconify-icon');
@@ -15,14 +29,14 @@
                 sparkle.style.fontSize = '1.5rem';
                 sparkle.style.pointerEvents = 'none';
                 sparkle.style.zIndex = '1000';
-                
+
                 button.appendChild(sparkle);
-                
+
                 const angle = (360 / 8) * i;
                 const distance = 60;
                 const x = Math.cos(angle * Math.PI / 180) * distance;
                 const y = Math.sin(angle * Math.PI / 180) * distance;
-                
+
                 sparkle.animate([
                     { transform: 'translate(-50%, -50%) scale(1)', opacity: 1 },
                     { transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) scale(0)`, opacity: 0 }
@@ -30,10 +44,10 @@
                     duration: 600,
                     easing: 'ease-out'
                 });
-                
+
                 setTimeout(() => sparkle.remove(), 600);
             }
-            
+
             setTimeout(() => button.classList.remove('explode'), 600);
         }
 
